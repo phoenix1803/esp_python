@@ -7,8 +7,8 @@
 #include <DallasTemperature.h>
 
 // ---------------- WIFI ----------------
-const char* ssid = "GALGOTIAS-ARUBA";
-const char* password = "1234567@";
+const char* ssid = "your-wifi-name";
+const char* password = "wifi-pass";
 
 WebServer server(80);
 
