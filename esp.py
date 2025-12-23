@@ -82,7 +82,7 @@ while reading_index <= TOTAL_READINGS:
         "UV": round(avg["UV"], 4),
         "TDS": round(avg["TDS"], 4),
         "pH": round(avg["pH"], 4),
-        "Pt": round(avg["Pt"], 3),
+        "Pt": round(avg["Pt"], 3), 
         "Cu": round(avg["Cu"], 3),
         "Zn": round(avg["Zn"], 3),
         "SS": round(avg["SS"], 3),
@@ -90,8 +90,7 @@ while reading_index <= TOTAL_READINGS:
         "Graphite": round(avg["Graphite"], 3),
         "Temp": round(avg["Temp"], 2),
 
-    }
-
+    }        
     filename = f"reading_{reading_index}.json"
     path = os.path.join(SAVE_DIR, filename)
 
@@ -104,7 +103,6 @@ while reading_index <= TOTAL_READINGS:
 
 print("ALL SERIAL READINGS COMPLETE")
 ser.close()
-
 
 
 
