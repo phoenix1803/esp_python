@@ -76,3 +76,31 @@ void setup() {
 
   adsSensors.setGain(GAIN_ONE);
   adsE1.setGain(GAIN_ONE);
+  adsE2.setGain(GAIN_ONE);
+  adsE3.setGain(GAIN_ONE);
+
+  tempSensor.begin();
+
+  Serial.println("✅ ESP32 SERIAL SENSOR STREAM STARTED");
+}
+
+// ---------------- MAIN LOOP ----------------
+void loop() {
+  if (millis() - lastSample >= 1000) {
+    lastSample = millis();
+    Sample s = readSensors();
+
+    Serial.print("{");
+    Serial.print("\"UV\":"); Serial.print(s.uv, 4);
+    Serial.print(",\"TDS\":"); Serial.print(s.tds, 4);
+    Serial.print(",\"pH\":"); Serial.print(s.ph, 4);
+    Serial.print(",\"Pt\":"); Serial.print(s.pt, 3);
+    Serial.print(",\"Cu\":"); Serial.print(s.cu, 3);
+    Serial.print(",\"Zn\":"); Serial.print(s.zn, 3);
+    Serial.print(",\"SS\":"); Serial.print(s.ss, 3);
+    Serial.print(",\"Ag\":"); Serial.print(s.ag, 3);
+    Serial.print(",\"Graphite\":"); Serial.print(s.graphite, 3);
+    Serial.print(",\"Temp\":"); Serial.print(s.temp, 3);
+    Serial.println("}");
+  }
+}
